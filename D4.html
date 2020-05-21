@@ -34,9 +34,10 @@
     <div class="container">
         <div class=" col-md-6">
             <input type="text" id="lsearch" name="lsearch" style="display: flex; position: relative; justify-content: space-evenly;">
-            <button type="button" class="btn btn-dark" onclick="">Add to Cart</button>
+            
         </div>
-        
+        <button type="button" class="btn btn-dark" onclick="">Add to Cart</button>
+        <button type="button" class="btn btn-dark clean" >Clean List</button>
         <button type="button" class="btn btn-dark" onclick="listOfItems()">Title List</button>
        
         <div class="row" id="source">
@@ -65,6 +66,7 @@
         listOfItems()
     } */
     
+    
     function listOfItems() {
         const url = 'https://striveschool.herokuapp.com/books?offset=0&limit=50'
         
@@ -92,6 +94,10 @@
                           e.currentTarget.parentNode.parentNode.remove();
                       }, false);
                   }
+                const cleanList  = document.querySelector(".clean")
+                cleanList.addEventListener("click", function(e){
+                    listItems.innerHTML=""
+                })
                 
                 let orders = document.querySelectorAll('.addbtn')
                 
